@@ -84,9 +84,9 @@ diffDeletedFiles before after = M.elems $ M.difference before after
 -- | Fork a thread that continuously polls the given paht and compares
 -- the results of two polls.
 startWatchThread :: FilePath
-                 -> (FilePath -> Reactive ()) -- ^ Push new files / dirs
-                 -> (FilePath -> Reactive ()) -- ^ Push deleted files / dirs
-                 -> (FilePath -> Reactive ()) -- ^ Push changed files / dirs
+                 -> (FilePath -> PReactive ()) -- ^ Push new files / dirs
+                 -> (FilePath -> PReactive ()) -- ^ Push deleted files / dirs
+                 -> (FilePath -> PReactive ()) -- ^ Push changed files / dirs
                  -> Int -- ^ Seconds between polls
                  -> IO ThreadId
 startWatchThread path pushNew pushDeleted pushChanged secs = do

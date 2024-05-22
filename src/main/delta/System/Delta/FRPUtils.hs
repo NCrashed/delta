@@ -6,7 +6,7 @@ import Control.Monad
 import FRP.Sodium
 
 data Ticker a = Ticker{ tickerInterval  :: Int
-                      , tickerEvent     :: Event a
+                      , tickerEvent     :: PEvent a
                       , tickerTerminate :: IO ()
                       }
 

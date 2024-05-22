@@ -14,10 +14,10 @@ import Control.Monad
 --
 -- * @deletedFiles@ is a stream of canonicalized 'FilePath's of deleted files
 data FileWatcher =
-  FileWatcher { newFiles        :: Event FilePath -- ^ Newly created files, renamed
+  FileWatcher { newFiles        :: PEvent FilePath -- ^ Newly created files, renamed
                                                   -- files
-              , deletedFiles    :: Event FilePath -- ^ Deleted files, renamed files
-              , changedFiles    :: Event FilePath -- ^ Changed files
+              , deletedFiles    :: PEvent FilePath -- ^ Deleted files, renamed files
+              , changedFiles    :: PEvent FilePath -- ^ Changed files
               , cleanUpAndClose :: IO ()          -- ^ A function to clean and close
                                                   -- ^ this watcher
               }

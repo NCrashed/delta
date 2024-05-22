@@ -98,10 +98,10 @@ main = do
 -- | Create an action that will run the given IO action when changes occur. The
 -- given action will not be run twice inbetween two firings of the ticker event.
 mkRunEvent :: Bool              -- ^ Verbose output
-           -> Event FilePath    -- ^ Changed / Deleted / New file event
+           -> PEvent FilePath    -- ^ Changed / Deleted / New file event
            -> Maybe (Ticker ()) -- ^ The periodical event
            -> IO ()             -- ^ Execute the input command
-           -> Reactive ()
+           -> PReactive ()
 mkRunEvent verbose change tickerMaybe run =
   case tickerMaybe of
    Just ticker -> mdo

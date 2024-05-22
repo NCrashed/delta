@@ -113,5 +113,5 @@ closeCallbackWatcher watcher = do
   
 
 -- | Add a listener to an event, return the action to unregister the listener
-callbackOnEvent :: Event a -> (a -> IO ()) -> IO (IO ())
+callbackOnEvent :: PEvent a -> (a -> IO ()) -> IO (IO ())
 callbackOnEvent e action = sync $ listen e action
